@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Desafios - Artistas de Padaria</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="cabecalho">
+            <h1 id="titulo">Artistas de Padaria</h1>
+
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="#">Desafios</a></li>
+                        <li><a href="#">Ranking</a></li>
+                        <li><a href="#">Perfil</a></li>
+                        <li><a href="#">Eventos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section>
+                <h2 id="tituloDesafios">Desafios do dia</h2>
+
+            <div id="janelaDesafios">
+                <div id="conteudoDesafios">
+                    <div id="navegacao">
+                        <div id="setaEsquerda">←</div>
+
+                        <div id="informacoesDia">
+                            <h3 id="data">DATA DE HOJE:</h3>
+
+                            <h3 id="temporada">Temporada atual:</h3>
+
+                            <h4 id="timer">timer:</h4>
+                        
+                        </div>
+
+                        <div id="setaDireita">→</div>
+                    </div>
+
+                    <div id="desafios">
+                        <article>
+                            <h3>Tema Livre</h3>
+                            <p>Desenhe o que desejar!</p>
+                            <p>Recompensa: 1 Moeda • 1 Ponto</p>
+                            
+                            <div id="previewLivre" class="previews"></div>
+
+                            <input type="file" id="arquivoLivre" accept="image/*">
+                            <div class="botoes-desafio">
+                                <label id="labelLivre" for="arquivoLivre">Escolher Desenho</label>
+                                <button id="enviarLivre">enviar</button>
+                            </div>
+                            <p id="mensagemLivre"></p>
+
+                        </article>
+                        
+
+                        <article>
+                            <h3>Desafio Diário</h3>
+                            <p id="textoDesafioDiario">Desafio do dia de hoje.</p>
+                            <p>Recompensa: 2 Moedas • 2 Pontos • 1 XP</p>
+
+                            <div id="previewDiario" class="previews"></div>
+
+                            <input type="file" id="arquivoDiario" accept="image/*">
+                            <div class="botoes-desafio">
+                                <label id="labelDiario" for="arquivoDiario">Escolher Desenho</label>
+                                <button id="enviarDiario">enviar</button>
+                            </div>
+                            <p id="mensagemDiario"></p>
+
+                        </article>
+
+                        <article>
+                            <h3>Desafio Semanal</h3>
+                            <p>Desafio da semana atual.</p>
+                            <p>Recompensa: 5 Moedas • 5 Pontos • 4 XP</p>
+
+                            <div id="previewSemanal" class="previews"></div>                
+
+                            <input type="file" id="arquivoSemanal" accept="image/*">
+                            <div class="botoes-desafio">
+                                <label id="labelSemanal" for="arquivoSemanal">Escolher Desenho</label>
+                                <button id="enviarSemanal">Enviar</button>
+                            </div>
+                            <p id="mensagemSemanal"></p>
+
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+      
+        <footer>
+            <h3>Artistas de padaria</h3>
+            <p>Uma comunidade para artistas se divertirem, criarem e compartilharem!</p>
+            <p>© 2026 Artistas de Padaria</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>

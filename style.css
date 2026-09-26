@@ -1,0 +1,302 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #E6CFA8;
+}
+
+.cabecalho {
+    background-color: #3B2923;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#titulo {
+    text-align: center;
+    color: #E98A3A;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+    margin: 0px;
+}
+
+.menu{
+    background-color: #72483a;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #FFF7E8;
+    display: inline-block;
+    padding: 10px 80px;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #FFF7E8;
+    background-color: #E98A3A;
+    transform: scale(1.1);
+}
+
+#apresentacao {
+    padding: 20px 10px;
+    background-color: #FFF7E8;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
+#apresentacao h2 {
+    color: #3B2923;
+    font-family: fantasy;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+#apresentacao p {
+    text-indent: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    font-size: 18px;
+    margin: auto;
+    max-width: 800px;
+}
+
+#botaoDesafios {
+    display: flex;
+    justify-content: center;
+}
+
+#botaoDesafios a {
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #E98A3A;
+    text-decoration: none;
+    color: #FFF7E8;
+    border-radius: 15px;
+    margin-top: 20px;
+
+    transition: 0.3s;
+}
+
+#botaoDesafios a:hover {
+    background-color: #3B2923;
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: #3B2923;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: auto;
+}
+
+footer h3 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #FFF7E8;
+}
+
+footer p {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #FFF7E8;
+    margin-top: 5px;
+}
+
+#navegacao{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#setaEsquerda,
+#setaDireita {
+    background-color: #E98A3A;
+    color: #FFF7E8;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 3px solid #3B2923;
+    box-shadow: 4px 4px 0px #3B2923;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#setaEsquerda:hover,
+#setaDireita:hover {
+    background-color: #3B2923;
+    transform: scale(1.1);
+}
+
+#informacoesDia {
+    background-color: #FFF7E8;
+    color: #3B2923;
+    padding: 20px 50px;
+    border-radius: 15px;
+}
+
+#data {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+}
+
+#temporada {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+}
+
+#timer {
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+}
+
+#desafios {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+#desafios article {
+    background-color: #FFF7E8;
+    color: #3B2923;
+    padding: 20px 30px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+#desafios button {
+    background-color: #E98A3A;
+    color: #FFF7E8;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+#desafios button:hover {
+    background-color: #3B2923;
+    transform: scale(1.1);
+}
+
+#desafios label {
+    display: inline-block;
+    background-color: #E98A3A;
+    color: #FFF7E8;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#desafios input[type="file"] {
+    display: none;
+}
+
+#desafios label:hover {
+    background-color: #3B2923;
+    transform: scale(1.1);
+}
+
+#desafios article img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid #3B2923;
+    box-sizing: border-box;
+}
+
+.previews {
+    margin: 15px 0;
+    min-height: 100px;
+}
+
+.botoes-desafio {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    margin-top: auto;
+}
+
+#desafios h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#desafios p, #desafios p[id^="mensagem"] {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#desafios article div[id^="preview"] {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E8D5C4;
+    border: 2px dashed #72483a;
+    border-radius: 12px;
+}
+
+#tituloDesafios {
+    font-size: 30px;
+    text-align: center;
+    color: #E98A3A;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #72483a;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#desafios article p:nth-of-type(1) {
+    min-height: 40px;
+}
+
+#desafios article p:nth-of-type(2) {
+    min-height: 40px;
+}
+
+#janelaDesafios {
+    width: 100%;
+    overflow: hidden;
+}
+
+#conteudoDesafios {
+    transition: transform 0.5s ease;
+    transform: translateX(0);
+    background-color: #72483a;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 20px auto;
+}
