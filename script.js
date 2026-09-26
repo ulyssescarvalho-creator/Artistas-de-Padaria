@@ -22,7 +22,6 @@ const conteudoDesafios = document.getElementById("conteudoDesafios");
 let animando = false;
 
 
-
 const hoje = new Date();
 const inicioHoje = new Date(hoje);
 inicioHoje.setHours(0, 0, 0, 0);
@@ -67,6 +66,8 @@ const desafiosDiarios = {
 const desenhosEnviados = {
 
 }
+
+const desenhosSemanais = {};
 
 console.log(desafiosDiarios[obterDataFormatada()]);
 
@@ -188,12 +189,15 @@ function enviarDesenho(input, mensagem, botao, tipo, preview, label) {
         const arquivo = input.files[0];
 
         const dataDoDesenho = obterDataFormatada();
-        if (!desenhosEnviados[dataDoDesenho]){
-            desenhosEnviados[dataDoDesenho] = {};
+        if (tipo === "semanal") {
+            obterSemanaFormatada();
+        } else {
+            if (!desenhosEnviados[dataDoDesenho]){
+                desenhosEnviados[dataDoDesenho] = {};
+            }
+            desenhosEnviados[dataDoDesenho][tipo] = arquivo;
+            mostrarDesenhoEnviado(preview, tipo, botao, mensagem, label);
         }
-        desenhosEnviados[dataDoDesenho][tipo] = arquivo;
-        mostrarDesenhoEnviado(preview, tipo, botao, mensagem, label);
-
     } else {
         mensagem.textContent = "Você não anexou nenhum desenho.";
     }
@@ -208,6 +212,27 @@ function atualizarDesafioDiario() {
     }
 }
 
+function obterInicioSemana(data) {
+    const diaSemana = data.getDay();
+    const diasParaVoltar = (diaSemana + 6) % 7;
+
+    const inicio = new Date(data);
+    inicio.setDate(inicio.getDate() - diasParaVoltar);
+
+    return inicio;
+}
+
+function obterSemanaFormatada(data) {
+    const diaSemana = obterInicioSemana(data);
+    const dia = diaSemana.getDate();
+    const diaFormatado = String(dia).padStart(2,"0");
+    const mes = diaSemana.getMonth() + 1;
+    const mesFormatado = String(mes).padStart(2,"0");
+    const ano = diaSemana.getFullYear();
+
+    const semanaFormatada = diaFormatado + "/" + mesFormatado + "/" + ano;
+    return semanaFormatada;
+}
 //  ----------------------------------------------------------
 
 arquivoLivre.addEventListener("change", function(){
@@ -245,13 +270,15 @@ setaEsquerda.addEventListener("click", function(){
     }
 
     if (dataSelecionada > limiteEsquerda) {
-        conteudoDesafios.style.transform = "translateX(-100%) scale(0.8)";
+        conteudoDesafios.style.transform = "translateX(100%) scale(0.8)";
         animando = true
 
         setTimeout(function(){
             atualizarData(-1);
             conteudoDesafios.style.transition = "none";
-            conteudoDesafios.style.transform = "translateX(100%) scale(0.8)";
+            conteudoDesafios.style.transform = "translateX(-100%) scale(1)";
+
+            void conteudoDesafios.offsetWidth;
 
             requestAnimationFrame(function() {
                 conteudoDesafios.style.transition = "transform 0.5s ease";
@@ -273,13 +300,15 @@ setaDireita.addEventListener("click", function(){
     }
 
     if(dataSelecionada < inicioHoje){
-        conteudoDesafios.style.transform = "translateX(100%) scale(0.8)";
+        conteudoDesafios.style.transform = "translateX(-100%) scale(0.8)";
         animando = true
 
         setTimeout(function() {
             atualizarData(1);
             conteudoDesafios.style.transition= "none";
-            conteudoDesafios.style.transform = "translateX(-100%) scale(0.8)";
+            conteudoDesafios.style.transform = "translateX(100%) scale(1)";
+
+            void conteudoDesafios.offsetWidth;
 
             requestAnimationFrame(function() {
                 conteudoDesafios.style.transition = "transform 0.5s ease";
@@ -299,3 +328,4 @@ setaDireita.addEventListener("click", function(){
 atualizarSetaDireita();
 atualizarSetaEsquerda();
 atualizarDesafioDiario();
+

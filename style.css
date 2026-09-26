@@ -125,13 +125,33 @@ footer p {
     text-align: center;
 }
 
+#setaEsquerda::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-left: 4px solid #FFF7E8;
+    border-bottom: 4px solid #FFF7E8;
+    transform: rotate(45deg);
+    margin-left: 5px;
+}
+
+#setaDireita::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-right: 4px solid #FFF7E8;
+    border-top: 4px solid #FFF7E8;
+    transform: rotate(45deg);
+    margin-right: 8px;
+}
+
 #setaEsquerda,
 #setaDireita {
     background-color: #E98A3A;
     color: #FFF7E8;
     width: 45px;
     height: 45px;
-    border-radius: 50%;
+    border-radius: 45% 55% 50% 48%;
     border: 3px solid #3B2923;
     box-shadow: 4px 4px 0px #3B2923;
 
@@ -142,10 +162,14 @@ footer p {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-#setaEsquerda:hover,
-#setaDireita:hover {
+#setaEsquerda:hover{
     background-color: #3B2923;
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(-3deg);
+}
+
+#setaDireita:hover{
+    background-color: #3B2923;
+    transform: scale(1.1) rotate(3deg);
 }
 
 #informacoesDia {
