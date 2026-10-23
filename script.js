@@ -19,6 +19,7 @@ const labelLivre = document.getElementById ("labelLivre");
 const labelDiario = document.getElementById ("labelDiario");
 const labelSemanal = document.getElementById ("labelSemanal");
 const conteudoDesafios = document.getElementById("conteudoDesafios");
+const textoDesafioSemanal = document.getElementById("textoDesafioSemanal");
 let animando = false;
 
 
@@ -63,11 +64,17 @@ const desafiosDiarios = {
     "23/09/2026": "Desenhe um meio de transporte."
 };
 
+const desafiosSemanaisTexto = {
+    "19/10/2026": "Desenhe uma criatura inspirada na natureza."
+};
+
 const desenhosEnviados = {
 
-}
+};
 
-const desenhosSemanais = {};
+const desenhosSemanais = {
+
+};
 
 console.log(desafiosDiarios[obterDataFormatada()]);
 
@@ -103,6 +110,7 @@ function atualizarData(mudancaData) {
     atualizarSetaDireita();
     atualizarSetaEsquerda();
     atualizarDesafioDiario();
+    atualizarDesafioSemanal();
 
 }
 
@@ -139,9 +147,23 @@ function atualizarSetaDireita() {
 
 function mostrarDesenhoEnviado(preview, tipo, botao, mensagem, label) {
 
-    if (desenhosEnviados[obterDataFormatada()] && desenhosEnviados[obterDataFormatada()][tipo]) {
+    let arquivo
 
-        const arquivo = desenhosEnviados[obterDataFormatada()][tipo];
+    if (tipo === "semanal") {
+
+        const semana = obterSemanaFormatada(dataSelecionada);
+
+        if (desenhosSemanais[semana]) {
+            arquivo = desenhosSemanais[semana].semanal;
+        }
+
+    } else {
+        if (desenhosEnviados[obterDataFormatada()]) {
+            arquivo = desenhosEnviados[obterDataFormatada()][tipo];
+        }
+    }
+
+    if (arquivo) {
         const imagemURL = URL.createObjectURL(arquivo);
         const imagem = document.createElement("img");
         imagem.src = imagemURL;
@@ -190,7 +212,15 @@ function enviarDesenho(input, mensagem, botao, tipo, preview, label) {
 
         const dataDoDesenho = obterDataFormatada();
         if (tipo === "semanal") {
-            obterSemanaFormatada();
+            const semanaDoDesenho = obterSemanaFormatada(dataSelecionada);
+
+            if (!desenhosSemanais[semanaDoDesenho]) {
+                desenhosSemanais[semanaDoDesenho] = {};
+            }
+
+            desenhosSemanais[semanaDoDesenho].semanal = arquivo;
+
+            mostrarDesenhoEnviado(preview, tipo, botao, mensagem, label);
         } else {
             if (!desenhosEnviados[dataDoDesenho]){
                 desenhosEnviados[dataDoDesenho] = {};
@@ -202,6 +232,7 @@ function enviarDesenho(input, mensagem, botao, tipo, preview, label) {
         mensagem.textContent = "Você não anexou nenhum desenho.";
     }
 
+
 }
 
 function atualizarDesafioDiario() {
@@ -209,6 +240,16 @@ function atualizarDesafioDiario() {
         textoDesafioDiario.textContent = desafiosDiarios[obterDataFormatada()];
     } else {
         textoDesafioDiario.textContent = "Nenhum desafio cadastrado para este dia.";
+    }
+}
+
+function atualizarDesafioSemanal() {
+    const semana = obterSemanaFormatada(dataSelecionada);
+
+    if (desafiosSemanaisTexto[semana]) {
+        textoDesafioSemanal.textContent = desafiosSemanaisTexto[semana];
+    } else {
+        textoDesafioSemanal.textContent = "Nenhum desafio cadastrado para esta semana.";
     }
 }
 
@@ -328,4 +369,4 @@ setaDireita.addEventListener("click", function(){
 atualizarSetaDireita();
 atualizarSetaEsquerda();
 atualizarDesafioDiario();
-
+atualizarDesafioSemanal();
